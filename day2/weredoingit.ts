@@ -39,14 +39,13 @@ function checkSafety(array : number[], dir : Gradient) : boolean {
 
 function checkDampenedSafety(array : number[], dir : Gradient) : boolean {
   let isSafe : boolean = false;
-  const originalArr = Object.assign([], array);
 
-  if (checkSafety(originalArr, dir)) isSafe = true;
-  
+  if (checkSafety(array, dir)) isSafe = true;
+
   for (let i = 0; i < array.length; i++) {
-    const array = Object.assign([], originalArr);
-    array.splice(i, 1);
-    if (checkSafety(array, dir)) isSafe = true;
+    let newArray = [...array]
+    newArray.splice(i, 1);
+    if (checkSafety(newArray, dir)) isSafe = true;
   } 
   return isSafe;
 }
