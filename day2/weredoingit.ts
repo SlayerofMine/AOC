@@ -1,7 +1,4 @@
-import * as fsPromise from 'fs/promises'; 
-import { get } from 'http';
-import { parse } from 'path';
-import { arrayBuffer } from 'stream/consumers';
+import * as fsPromise from 'fs/promises';
 
 enum Gradient {
   asc = 1,
