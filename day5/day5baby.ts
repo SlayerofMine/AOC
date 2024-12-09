@@ -75,19 +75,26 @@ readInput("input.txt").then((data) => {
     let correctSequences = filterSequences(comesAfterRules, sequences, false)
     let wrongSequences = filterSequences(comesAfterRules, sequences, true)
 
-    let fixedSequences = fixSequences(comesAfterRules, sequences)
+    let fixedSequences = fixSequences(comesAfterRules, wrongSequences)
 
-    //console.log(fixedSequences)
+    console.log(fixedSequences)
 
-    //console.log(filterSequences(comesAfterRules, [fixedSequences[0]], false))
+    
 
 
     //5561 < Answer < 6498
     let correctSum = 0;
+    let correctedSum = 0;
 
     for (let sequence of correctSequences) {
-        correctSum += sequence[Math.round(sequence.length/2)]
+        correctSum += sequence[Math.round((sequence.length-1)/2)]
     }
+
+    for (let sequence of fixedSequences) {
+      correctedSum += sequence[Math.round((sequence.length-1)/2)]
+    }
+
     
-    console.log(correctSum)
+    console.log(correctSum);
+    console.log(correctedSum);
 })
