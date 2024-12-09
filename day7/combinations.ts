@@ -1,7 +1,5 @@
-import { all } from 'axios';
-import { read } from 'fs';
 import * as fsPromise from 'fs/promises';
-import { parse } from 'path';
+
 
 async function readInput(fileName : string) : Promise<number[][]> {
   var parsedInput: number[][] = [];
@@ -52,7 +50,6 @@ function getPossibleSolutions(equations : number[][], allowConcat : boolean) : n
 
 readInput("input.txt").then((data) => {
   let solutions = getPossibleSolutions(data, false);
-  console.log(solutions)
   let sum = solutions.reduce((total, number) => total + number)
   //Answer > 1988201
   console.log(sum)
